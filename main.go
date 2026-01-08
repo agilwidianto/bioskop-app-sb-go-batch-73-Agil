@@ -15,6 +15,10 @@ func main() {
 	config.DB.AutoMigrate(&models.Bioskop{})
 
 	r.POST("/bioskop", handlers.CreateBioskop)
+	r.GET("/bioskop", handlers.GetAllBioskop)
+	r.GET("/bioskop/:id", handlers.GetBioskopByID)
+	r.PUT("/bioskop/:id", handlers.UpdateBioskop)
+	r.DELETE("/bioskop/:id", handlers.DeleteBioskop)
 
 	r.Run(":8080")
 }
