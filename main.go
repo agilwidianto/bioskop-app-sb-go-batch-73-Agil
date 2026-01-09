@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"bioskop-app-sb-go-batch-73-Agil/config"
 	"bioskop-app-sb-go-batch-73-Agil/handlers"
 	"bioskop-app-sb-go-batch-73-Agil/models"
@@ -20,5 +22,10 @@ func main() {
 	r.PUT("/bioskop/:id", handlers.UpdateBioskop)
 	r.DELETE("/bioskop/:id", handlers.DeleteBioskop)
 
-	r.Run(":8080")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r.Run(":" + port)
 }
