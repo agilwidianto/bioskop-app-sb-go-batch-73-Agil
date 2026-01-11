@@ -12,7 +12,7 @@ var DB *gorm.DB
 
 func ConnectDatabase() {
 	dsn := fmt.Sprintf(
-		"host=localhost user=postgres password=Agil@2002 dbname=bioskop_db port=5432 sslmode=disable",
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=require",
 		os.Getenv("PGHOST"),
 		os.Getenv("PGUSER"),
 		os.Getenv("PGPASSWORD"),
